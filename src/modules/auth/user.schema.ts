@@ -11,9 +11,16 @@ export class User{
     @Prop()
     dpi: string;
 
+    @Prop()
+    email: string;
 
     @Prop()
     password: string;
+
+    @Prop({
+        default: true
+    })
+    active: boolean;
 
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Role' })
     role: Role;

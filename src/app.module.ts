@@ -13,7 +13,7 @@ import { CreditModule } from './modules/credit/credit.module';
       expandVariables: true,
       envFilePath: '.prod.env'
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/nest'),
+    MongooseModule.forRoot('mongodb+srv://administrator:KiKteYdZnVypDx9y@cluster-umg.zghfn.mongodb.net/?retryWrites=true&w=majority&appName=cluster-umg'),
     AuthModule,
     CreditModule
   ],

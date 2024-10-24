@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title Token de Acceso
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+      }
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .token {
+        font-weight: bold;
+        color: #007bff;
+      }
+      footer {
+        margin-top: 20px;
+        font-size: 12px;
+        text-align: center;
+        color: #777;
+      }
+  body
+    .container
+      h1 ¡Hola!
+      p Aquí tienes tu token de acceso:
+      p(class="token") #{token}
+      footer
+        p Este es un correo automático, por favor no respondas.

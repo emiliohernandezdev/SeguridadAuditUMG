@@ -10,7 +10,9 @@ import { AddRoleResponse } from "./dto/response/add-role.response";
 @Injectable()
 export class RoleService {
 
-    constructor(@InjectModel(Role.name) private roleModel: Model<Role>) { }
+    constructor(@InjectModel(Role.name) private roleModel: Model<Role>) { 
+        this.defaultRole()
+    }
 
     public async getRoles() {
         var response = new GetRolesResponse();
@@ -48,5 +50,33 @@ export class RoleService {
             response.message = "Error al crear el rol";
             return response;
         }
+    }
+
+    public async defaultRole(){
+        var response = new AddRoleResponse();
+        try {
+            const find = await this.roleModel.findOne({ name: "user" });
+            if (find) {
+                response.success = true;
+                response.message = "Rol por defecto si existe";
+                return response;
+            } else {
+                const role = new this.roleModel({ name: "user", description: 'Rol por defecto' });
+                await role.save();
+                response.role = role;
+                response.success = true;
+                response.message = "Rol por defecto creado";
+                return response;
+            }
+        } catch (err) {
+            response.success = false;
+            response.message = "Error al crear el rol por defecto";
+            return response;
+        }
+    }
+
+    public async getDefaultRole(){
+        const find = await this.roleModel.findOne({ name: "user" });
+        return find;
     }
 }

@@ -4,6 +4,7 @@ import { Role } from "./role.enum";
 import { CreateUserDto } from "./dto/request/create-user.request";
 import { AuthService } from "./auth.service";
 import { LoginRequestDto } from "./dto/request/login.request";
+import { ValidateTokenRequest } from "./dto/request/validate-token.request";
 
 @Controller('auth')
 export class AuthController{
@@ -19,5 +20,10 @@ export class AuthController{
     @Post('login')
     public async loginUser(@Body() body: LoginRequestDto){
         return this.authService.doLogin(body);
+    }
+
+    @Post('validate')
+    public async validateToken(@Body() body: ValidateTokenRequest){
+        return await this.authService.validateToken(body);
     }
 }
