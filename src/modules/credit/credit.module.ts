@@ -5,6 +5,7 @@ import { CreditService } from './credit.service';
 import { CreditController } from './credit.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { User, UserSchema } from '../auth/user.schema';
+import { Transaction, TransactionSchema } from './transaction.schema';
 
 @Module({
     imports: [
@@ -16,6 +17,10 @@ import { User, UserSchema } from '../auth/user.schema';
             {
                 name: User.name,
                 schema: UserSchema
+            },
+            {
+                name: Transaction.name,
+                schema: TransactionSchema
             }
         ]),
         JwtModule

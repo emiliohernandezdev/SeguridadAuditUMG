@@ -4,9 +4,9 @@ export class UpdateCreditRequest{
     @IsString()
     id: string;
     
-    @IsNumberString()
+    @IsNumber()
     limit: number;
 
-    @IsNumberString()
+    @IsNumber()
     available: number;
 }
