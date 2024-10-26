@@ -1,12 +1,12 @@
-import { IsNumber, IsString } from "class-validator";
+import { IsNumber, IsNumberString, IsString } from "class-validator";
 
 export class UpdateCreditRequest{
     @IsString()
     id: string;
     
-    @IsNumber()
-    before: number;
+    @IsNumberString()
+    limit: number;
 
-    @IsNumber()
-    after: number;
+    @IsNumberString()
+    available: number;
 }

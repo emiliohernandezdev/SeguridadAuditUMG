@@ -3,7 +3,6 @@ import { CreditService } from "./credit.service";
 import { AuthGuard } from "../auth/auth.guard";
 import { AddCreditRequest } from "./dto/request/add-credit.request";
 import { UpdateCreditRequest } from "./dto/request/update-credit.request";
-import { RolesGuard } from "../auth/roles.guard";
 
 @Controller('credit')
 export class CreditController{
@@ -12,7 +11,13 @@ export class CreditController{
     @UseGuards(AuthGuard)
     @Get('my')
     public async getMyCredit(@Req() req: Request){
-        return await this.creditService.getMyCredit(req['user'].toString());
+        return await this.creditService.getMyCredit(req['user']);
+    }
+
+    @UseGuards(AuthGuard)
+    @Get('users')
+    public async getCreditUsers(){
+        return await this.creditService.getCreditWithUsers()
     }
 
     @Post('add')

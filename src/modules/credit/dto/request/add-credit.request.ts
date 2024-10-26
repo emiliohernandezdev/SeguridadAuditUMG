@@ -1,9 +1,10 @@
-import { IsNumber, IsString } from "class-validator";
+import { IsNumber, IsNumberString, IsString } from "class-validator";
 
 export class AddCreditRequest{
-    @IsNumber()
+    @IsNumberString()
     limit: number;
-
+    
+    @IsNumberString()
     available: number;
 
     @IsString()
